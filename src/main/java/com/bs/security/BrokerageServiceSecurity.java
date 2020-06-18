@@ -30,7 +30,9 @@ public class BrokerageServiceSecurity extends WebSecurityConfigurerAdapter  {
 	
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		
+		//The issue is that the HTTP request from the your website and the request from the evil website are exactly the same.(i.e. if the request is forged)
+		//This means there is no way to reject requests coming from the evil website and allow requests coming from the your website.
+		// In that case csrf(Cross Site Request Forgery) is used
 		http.csrf().disable().authorizeRequests().antMatchers("/authenticate").permitAll()
 		.anyRequest().authenticated().and().sessionManagement()
 		.sessionCreationPolicy(SessionCreationPolicy.STATELESS);
@@ -46,7 +48,8 @@ public class BrokerageServiceSecurity extends WebSecurityConfigurerAdapter  {
 	public PasswordEncoder getPasswordEncoder() {
 		return NoOpPasswordEncoder.getInstance();
 	}
-
+	
+	//exposes authentication manager bean to configure (authentication manager builder)
 	@Override
 	@Bean
 	public AuthenticationManager authenticationManagerBean() throws Exception {

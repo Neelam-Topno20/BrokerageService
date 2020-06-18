@@ -7,7 +7,6 @@ import java.util.Optional;
 import com.bs.beans.Stock;
 import com.bs.beans.Trade;
 import com.bs.beans.User;
-import com.bs.exception.TradeNotFoundException;
 
 public interface BrokerageService {
 

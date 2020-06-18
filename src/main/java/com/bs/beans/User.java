@@ -29,8 +29,8 @@ public class User {
 	private boolean active;
 	private String roles;
 	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	@MapKey(name = "tradeId")
-	@JsonIgnore
+	@MapKey(name = "tradeId") 
+	@JsonIgnore   // ignores unecessary json data while returning the map of trades 
 	private Map<Integer, Trade> trades;
 
 	public User() {

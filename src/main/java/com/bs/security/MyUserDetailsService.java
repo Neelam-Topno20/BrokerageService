@@ -20,10 +20,12 @@ public class MyUserDetailsService implements UserDetailsService {
 
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		brokerageUserDao.findUserByUsername(username);
+		//brokerageUserDao.findUserByUsername(username);
 		Optional<User> user = brokerageUserDao.findUserByUsername(username);
 		user.orElseThrow(() -> new UsernameNotFoundException("Invalid Username" + " " + username));
+		// user ->  new MyUserDetails(user); as in lambda expression
 		return user.map(MyUserDetails::new).get();
+		
 	}
 
 }
