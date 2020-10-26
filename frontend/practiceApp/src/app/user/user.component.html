@@ -1,0 +1,28 @@
+<div class="container">
+    <h1>All User Details</h1>
+</div>
+
+<div class="container">
+    <div class="table">
+        <thead>
+            <th>Email Id</th>
+            <th>Name</th>
+            <th>Role</th>
+            <th>Update</th>
+            <th>Delete</th>
+        </thead>
+        <tbody>
+            <tr *ngFor = "let user of users">
+                <td >{{user.emailId}}</td>
+                <td>{{user.name}}</td>
+                <td>{{user.roles}}</td>
+                <td><button class="btn btn-success" (click)="updateUser(user)" >Update</button></td>
+                <td><button class="btn btn-warning" (click)="deleteUser(user.userId)" >Delete</button></td>
+            </tr>
+        </tbody>
+    </div>
+</div>
+
+<div class="container">
+    <button class="btn btn-success" (click)="addUser()" >Add</button>
+</div>

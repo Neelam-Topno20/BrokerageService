@@ -1,0 +1,18 @@
+<div class="container">
+    <div class="table">
+        <thead>
+            <th>Symbol</th>
+            <th>Name</th>
+            <th>PPU</th>
+            <th>Actions</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let stock of stockList" >
+                <td>{{stock.symbol}}</td>
+                <td>{{stock.name}}</td>
+                <td>{{stock.ppu}}</td>
+                <td><button class="btn btn-success" (click)="purchase(stock.id)"> Buy</button></td>
+            </tr>
+        </tbody>
+    </div>
+</div>

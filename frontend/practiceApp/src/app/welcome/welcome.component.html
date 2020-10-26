@@ -1,0 +1,52 @@
+<div class="container">
+    <h2>Welcome to Brokerage Service!</h2>
+    <!-- <p> Welcome to Brokerage Service </p> -->
+</div>
+
+<div class="container">
+    <app-user-account></app-user-account>
+</div>
+
+<!-- <div class="container">
+    <p>Quick Healthcheck for Rest API</p>
+    <button class="btn btn-success" (click)='getHealthCheckMessage()' > Check </button>
+</div> -->
+
+<!--<div class="container" *ngIf="message; else failMessage">
+    <p>{{message}}</p>
+</div>  -->
+
+<!-- <ng-template #failMessage>
+   <p>Application is down</p>
+</ng-template> -->
+<!--     
+<div class="container" *ngIf="message">
+    <p>{{message}}</p>
+</div>
+
+<div class="container">
+    <p>Find a trade</p>
+    <button class="btn btn-success" (click)='getTradeInfo()' > Find </button>
+</div>
+
+<div class="container" *ngIf="trade">
+    <h1>Trade Search Results </h1>
+    <table class="table" >
+        <thead>
+            <th>Type</th>
+            <th>Symbol</th>
+            <th>Shares</th>
+            <th>Price</th>
+            <th>Date</th>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{trade.type}}</td>
+                <td>{{trade.symbol}}</td>
+                <td>{{trade.shares}}</td>
+                <td>{{trade.price}}</td>
+                <td>{{trade.timestamp|date|uppercase}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div> -->

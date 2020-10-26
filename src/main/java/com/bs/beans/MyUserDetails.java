@@ -16,12 +16,14 @@ public class MyUserDetails implements UserDetails {
 	 */
 	private static final long serialVersionUID = 1L;
 	private String userName;
+	private String emailId;
 	private String password;
 	private boolean active;
 	private List<GrantedAuthority> authorities;
 
 	public MyUserDetails(User user) {
 		this.userName = user.getName();
+		this.emailId = user.getEmailId();
 		this.password = user.getPassword();
 		this.active = user.isActive();
 		this.authorities = Arrays.stream(user.getRoles().split(",")).map(SimpleGrantedAuthority::new)
@@ -41,7 +43,7 @@ public class MyUserDetails implements UserDetails {
 
 	@Override
 	public String getUsername() {
-		return this.userName;
+		return this.emailId;
 	}
 
 	@Override

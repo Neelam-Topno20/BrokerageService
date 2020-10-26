@@ -1,0 +1,12 @@
+<h1>Login!</h1>
+<div class="container">
+    <div *ngIf='invalidCredentials' class="alert alert-warning" >{{errorMessage}}</div>
+    <div >
+        Username: <input type="text" [(ngModel)]=username >
+        Password: <input type="password" [(ngModel)]=password> 
+        <button class="btn btn-success"     (click)=handleJwtLogin() > Submit</button>
+    </div>
+</div>
+<div class="container">
+    <div id="regLine"> New User? Register <a routerLink="/registration/-1">here</a></div>  
+</div>

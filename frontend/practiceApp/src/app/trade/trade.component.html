@@ -1,0 +1,87 @@
+<!-- <div class="container" *ngIf="tradeId">
+    <h1>Trade insert/update</h1>
+</div> -->
+
+<!-- without form element -->
+<!-- <div class="container">
+    <fieldset class="form-group">
+        <label>Type</label>
+        <input type="text" class="form-control"  [(ngModel)]="trade.type"  name = "type" required>
+    </fieldset>
+
+    <fieldset class="form-group">
+        <label>Symbol</label>
+        <input type="text" class="form-control" [(ngModel)]=trade.symbol name = "symbol" required>
+    </fieldset>
+
+    <fieldset class="form-group">
+        <label>Shares</label>
+        <input type="text" class="form-control" [(ngModel)]=trade.shares name = "shares" required>
+    </fieldset>
+
+    <fieldset class="form-group">
+        <label>Price</label>
+        <input type="text" class="form-control" [(ngModel)]=trade.price name = "price" required>
+    </fieldset>
+
+    <fieldset class="form-group">
+        <label>Timestamp</label>
+        <input type="text" class="form-control" [(ngModel)]=trade.timestamp name = "timestamp" required>
+    </fieldset>
+
+    <button class="btn btn-success" (click)="updateTrade()"> Submit </button>
+    
+</div> -->
+
+<div class="container" *ngIf="errorMessage">
+    <div class="alert alert-warning">{{errorMessage}}</div>
+</div>
+
+<div class="container">
+
+    <div class="alert alert-warning" *ngIf="tradeForm.dirty && tradeForm.invalid">Enter valid values</div>
+    <!-- <div class="alert alert-warning" *ngIf="tradeForm.dirty && type.invalid">Enter valid type</div> -->
+
+    <form (ngSubmit) = "!tradeForm.invalid && updateTrade()"  #tradeForm = "ngForm">
+
+        <fieldset class="form-group">
+            <label>Symbol</label>
+            <input type="text" class="form-control" [(ngModel)]=trade.symbol name = "symbol" required>
+        </fieldset>
+
+        <fieldset class="form-group">
+            <label>Stock Name</label>
+            <input type="text" class="form-control" [(ngModel)]=stock.name name="name" required >
+        </fieldset>
+
+        <fieldset class="form-group">
+            <label>Investing Amount</label>
+            <input type="text" class="form-control" [(ngModel)]=trade.price (change)=priceChange() name = "price" required>
+        </fieldset>
+
+        <fieldset class="form-group">
+            <label>No of Units</label>
+            <input type="text" class="form-control" [(ngModel)]=trade.shares name = "shares" required>
+        </fieldset>
+
+        <fieldset class="form-group">
+            <label>Type</label>
+            <select class="form-control" name="type" [(ngModel)]="trade.type">
+                <option value ="buy"> buy</option>
+                <option value = "sell">sell</option>
+            </select>
+            <!-- <input type="text" class="form-control" #type="ngModel"  [(ngModel)]="trade.type"  name = "type" required  minlength="3"> -->
+        </fieldset>
+
+        <fieldset class="form-group">
+            <label>Timestamp</label>
+            <input type="text" class="form-control" [(ngModel)]=trade.timestamp name = "timestamp"  required>
+        </fieldset>
+
+        <button class="btn btn-success" type="submit"> Submit </button>
+    </form> 
+</div>
+
+
+
+

@@ -1,5 +1,6 @@
 package com.bs.dao;
 
+import java.util.List;
 import java.util.Optional;
 
 
@@ -10,6 +11,6 @@ import com.bs.beans.User;
 
 public interface BrokerageUserDao extends CrudRepository<User, Integer> {
 	
-	@Query(value = "SELECT * FROM USER WHERE NAME = ?1 ", nativeQuery = true)
-	Optional<User> findUserByUsername(String username);
+	@Query(value = "SELECT * FROM USER WHERE EMAIL_ID = ?1 ", nativeQuery = true)
+	Optional<User> findUserByEmailId(String emailId);
 }

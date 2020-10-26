@@ -1,0 +1,26 @@
+<div class="container">
+    <button class="btn btn-success" (click)="viewPurchasedStocks()"> View Assets</button>
+</div>
+<div class="container" *ngIf="flag">
+    <div class="table">
+        <thead>
+            <th>Symbol</th>
+            <th>Name</th>
+            <th>Units</th>
+            <th>Value</th>
+            <th>Actions</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let purchasedStock of purchasedStockList" >
+                <td>{{purchasedStock.symbol}}</td>
+                <td>{{purchasedStock.name}}</td>
+                <td>{{purchasedStock.totalUnits}}</td>
+                <td>{{purchasedStock.totalPrice}}</td>
+                <td><button class="btn btn-success" (click)="sellPurchasedStock(purchasedStock.stockId)" >Sell</button></td>
+            </tr>
+
+        </tbody>
+
+    </div>
+
+</div>

@@ -1,5 +1,6 @@
 package com.bs.security;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,14 +16,13 @@ import com.bs.dao.BrokerageUserDao;
 @Service
 public class MyUserDetailsService implements UserDetailsService {
 
-	@Autowired
+	@Autowired    
 	BrokerageUserDao brokerageUserDao;
 
 	@Override
-	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		//brokerageUserDao.findUserByUsername(username);
-		Optional<User> user = brokerageUserDao.findUserByUsername(username);
-		user.orElseThrow(() -> new UsernameNotFoundException("Invalid Username" + " " + username));
+	public UserDetails loadUserByUsername(String emailId) throws UsernameNotFoundException {
+		Optional<User> user = brokerageUserDao.findUserByEmailId(emailId);
+		user.orElseThrow(() -> new UsernameNotFoundException("Invalid EmailId" + " " + emailId));
 		// user ->  new MyUserDetails(user); as in lambda expression
 		return user.map(MyUserDetails::new).get();
 		
